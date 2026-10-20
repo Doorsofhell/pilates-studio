@@ -1,0 +1,3 @@
+import js from '@eslint/js';
+import tseslint from 'typescript-eslint';
+export default tseslint.config({ignores:['dist/**','android/**','node_modules/**','premium.js','app.js','coach.js','install.js','sw.js','public/**']},js.configs.recommended,...tseslint.configs.recommended,{files:['src/**/*.{ts,tsx}'],languageOptions:{globals:{localStorage:'readonly',window:'readonly',document:'readonly',navigator:'readonly',performance:'readonly',crypto:'readonly',structuredClone:'readonly',fetch:'readonly',Response:'readonly',caches:'readonly',setInterval:'readonly',clearInterval:'readonly',SpeechSynthesisUtterance:'readonly'}},rules:{'no-undef':'off'}});

@@ -7,3 +7,8 @@ android/app/build/
 *.jks
 .env
 .DS_Store
+
+dist/
+playwright-report/
+test-results/
+android/local.properties

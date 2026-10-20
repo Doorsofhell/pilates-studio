@@ -1,7 +1,7 @@
 name: V1.1 Quality
 on:
   push:
-    branches: [main, feature/v1.1-react-typescript-vite]
+    branches: [main, feature/v1.1-quality-foundation]
   pull_request:
 permissions:
   contents: read
@@ -13,6 +13,39 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install --no-audit --no-fund
-      - run: npm test
-      - run: npm run build
+          cache: npm
+      - run: npm ci --no-fund
+      - run: npm run verify
+      - run: npm audit --audit-level=high
+      - name: Record exact web artifact
+        run: |
+          tar -czf web-${GITHUB_SHA}.tar.gz dist
+          sha256sum web-${GITHUB_SHA}.tar.gz > web-sha256.txt
+          printf '%s\n' "$GITHUB_SHA" > commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: web-${{ github.sha }}
+          path: |
+            web-*.tar.gz
+            web-sha256.txt
+            commit.txt
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+        env:
+          STANDARD_CHROMIUM: 'true'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: browser-report-${{ github.sha }}
+          path: |
+            playwright-report/
+            test-results/

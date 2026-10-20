@@ -1,0 +1,3 @@
+import {defineConfig} from '@playwright/test';
+import chromium from '@sparticuz/chromium';
+export default defineConfig({testDir:'tests/e2e',workers:1,retries:0,reporter:[['list'],['html',{open:'never'}]],use:{baseURL:'http://127.0.0.1:4173',viewport:{width:390,height:844},locale:'fr-FR',timezoneId:'Europe/Paris',launchOptions:process.env.STANDARD_CHROMIUM==='true'?{}:{executablePath:await chromium.executablePath(),args:['--no-sandbox','--disable-gpu','--no-zygote']},trace:'retain-on-failure'},webServer:{command:'npx vite --host 127.0.0.1 --port 4173',url:'http://127.0.0.1:4173',reuseExistingServer:false}});

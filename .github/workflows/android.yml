@@ -1,7 +1,7 @@
 name: Android APK (test)
 on:
   push:
-    branches: [main]
+    branches: [main, feature/v1.1-quality-foundation]
   workflow_dispatch:
 permissions:
   contents: read
@@ -19,9 +19,9 @@ jobs:
           distribution: temurin
           java-version: '21'
       - uses: android-actions/setup-android@v3
-      - run: npm install --no-audit --no-fund
+      - run: npm ci --no-fund
       - run: npm run build
-      - run: npx cap add android && npx cap sync android
+      - run: npx cap sync android
       - name: Build debug APK
         working-directory: android
         run: chmod +x gradlew && ./gradlew assembleDebug --no-daemon

@@ -1,0 +1,3 @@
+
+## 19. Compléments qualité et bibliothèque (20 octobre 2026)
+Les exigences de qualité/non-régression, bibliothèque internationale et fiches techniques sont suivies dans `QUALITY_AND_ROLLBACK.md`, `INTERNATIONAL_LIBRARY.md` et `IMPLEMENTATION_STATUS.md`. Les schémas exécutables se trouvent dans `src/editorial`. Les objectifs de 140 puis 1 000 séances et 60 programmes restent des cibles éditoriales, séparées des compteurs publiés. Toute publication requiert une fiche sourcée, une validation professionnelle de la variante exacte, des médias concordants et les configurations machine appropriées. Les preuves manquantes bloquent la diffusion de production.

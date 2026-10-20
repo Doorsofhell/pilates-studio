@@ -1,0 +1,4 @@
+import {it,expect} from 'vitest';import {sessions,programs} from '../data/catalog';import {filterSessions} from './filter';import {defaults} from '../profile/model';
+it('combines search practice level duration and favorites',()=>{expect(filterSessions(sessions,{query:'flow',practice:'Tapis',level:'Débutant',maxMinutes:15,favoritesOnly:true,compatibleOnly:false},defaults,['mat-flow']).map(s=>s.id)).toEqual(['mat-flow'])});
+it('excludes Reformer without machine when compatibility filter is requested',()=>{expect(filterSessions(sessions,{query:'',practice:'Reformer',level:'Tous',maxMinutes:45,favoritesOnly:false,compatibleOnly:true},defaults,[])).toEqual([])});
+it('announces only the actual program entries',()=>{for(const p of programs){expect(p.days).toBe(p.ids.length);for(const id of p.ids)expect(sessions.some(s=>s.id===id)).toBe(true)}});

@@ -1,0 +1,12 @@
+import type {Media,ReformerSetup} from '../coaching/content';
+export const levels=['Découverte','Débutant','Débutant confirmé','Intermédiaire','Intermédiaire confirmé','Avancé','Expert'] as const;
+export type Level=0|1|2|3|4|5|6;
+export type Status='identified'|'draft'|'integrated'|'published';
+export type Review={name:string;qualification:string;date:string;version:string;practice:'mat'|'reformer';mediaReviewed:boolean;comprehensionTested:boolean};
+export type Source={organization:string;url:string;accessed:string;variant:string;rights:string};
+export type Benefit={kind:'objective'|'mechanical'|'evidence';description:string;sourceUrl?:string;population?:string;limits?:string};
+export type Technique={id:string;version:string;status:Status;nameFr:string;internationalName:string;aliases:string[];description:string;practice:'mat'|'reformer';school:'classical'|'contemporary'|'hybrid';level:Level;intensity:'low'|'moderate'|'high';mobility:string;balance:string;autonomy:string;supervision:boolean;prerequisites:string[];benefits:Benefit[];muscles:string[];joints:string[];equipment:string[];installation:string;supports:string;execution:string[];breathing:string[];tempo:string;dosage:string;recovery:string;sensations:string;errors:{error:string;cue:string}[];precautions:string;stopCriteria:string;regressions:string[];progressions:string[];demonstration:Media[];sources:Source[];setups:ReformerSetup[];review?:Review};
+export type EditorialSession={id:string;version:string;status:Status;title:string;practice:'mat'|'reformer';level:Level;intensity:string;equipment:string[];seconds:number;steps:{techniqueId:string;seconds:number;variantId?:string;machineId?:string}[];review?:Review};
+export type EditorialProgram={id:string;days:number;status:Status;entries:({day:number;type:'rest'}|{day:number;type:'session';sessionId:string})[];review?:Review};
+export type Catalog={techniques:Technique[];sessions:EditorialSession[];programs:EditorialProgram[]};
+export const editorialCatalog:Catalog={techniques:[],sessions:[],programs:[]};

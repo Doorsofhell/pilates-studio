@@ -1,1 +1,4 @@
 import React from 'react';import{createRoot}from'react-dom/client';import App from './ui/App';import '../premium.css';import './ui/overrides.css';createRoot(document.getElementById('app')!).render(<React.StrictMode><App/></React.StrictMode>);
+
+import {installLifecycle} from './android/lifecycle';
+void installLifecycle();

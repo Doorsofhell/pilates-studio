@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Pilates Studio</string>
+    <string name="title_activity_main">Pilates Studio</string>
+    <string name="package_name">com.doorsofhell.pilatesstudio</string>
+    <string name="custom_url_scheme">com.doorsofhell.pilatesstudio</string>
+</resources>
