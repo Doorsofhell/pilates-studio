@@ -1,0 +1,1 @@
+.mobile-nav button{background:transparent;color:inherit}.mobile-nav button.active{color:#e5baf4}.player.open{display:block}.player:not(.open){display:none}.program-card .big{font-size:42px;font-weight:800}.card-actions{display:flex;gap:8px}.coach-panel .clock{font-variant-numeric:tabular-nums}.player{z-index:1000}button:disabled{opacity:.45;cursor:not-allowed}

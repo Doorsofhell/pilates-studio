@@ -1,7 +1,7 @@
 {
   "appId": "com.doorsofhell.pilatesstudio",
   "appName": "Pilates Studio",
-  "webDir": "www",
+  "webDir": "dist",
   "android": {
     "backgroundColor": "#171720",
     "allowMixedContent": false
