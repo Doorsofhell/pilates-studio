@@ -43,3 +43,6 @@ Les échecs intermédiaires du navigateur et du contraste ont conduit à corrige
 - La prévisualisation ne vaut pas validation de production. Aucun Play Store ni signature de diffusion.
 
 Les preuves distribuées par CI sont nommées avec le SHA exact ; empreintes du build conservées comme artefact. Les résultats CI/URL de prévisualisation doivent être vérifiés pour le commit effectivement publié, indépendamment des succès locaux. Protections de branche à configurer par un administrateur.
+
+## Première exécution GitHub
+Commit `318a2bbb188b6773625ba9a7ec661f094e7933e8` : contrôles `verify` et `e2e` réussis. Prévisualisation refusée avant exécution par la règle de branche de l’environnement github-pages (branche feature non autorisée). APK échoué lors de l’installation du paquet SDK obsolète `tools` ; remplacement par platform-tools et SDK/build-tools 36 dans la révision suivante. Aucun de ces échecs ne vaut validation Android ou déploiement.
